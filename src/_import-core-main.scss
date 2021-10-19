@@ -1,0 +1,25 @@
+@charset 'UTF-8';
+
+// Configurações - Camada usada com pré-processadores e contém definições de fonte, cores e etc.
+@import './settings/index';
+
+// Ferramentas (Functions e mixins) - Camada de mixins e funções usados ​​globalmente.
+// Nota: É importante não gerar nenhum CSS nas 2 primeiras camadas.
+@import './tools/functions/index';
+@import './tools/mixins/index';
+
+// Genérico - Camada responsável por redefinir e/ou normalizar estilos, definição de tamanho de caixa e etc.
+// Nota: Esta é a primeira camada que gera CSS real.
+@import './generic/index';
+
+// Elementos - Estilo para elementos HTML básicos (como H1, A e etc.). Eles vêm com o estilo padrão do navegador para que possamos redefini-los aqui.
+@import './elements/index';
+
+// Objetos - Camada para seletores baseados em classe que definem padrões de design não decorados, por exemplo, objeto de mídia conhecido de OOCSS.
+@import './objects/index';
+
+// Componentes - Camada responsável por definir comportamentos de UI.
+@import './components/index';
+
+// Trunfos - Camada de utilitários e classes auxiliares com capacidade de substituir tudo o que vem antes no triângulo (Por exemplo: Ocultar classe auxiliar).
+@import './trumps/index';

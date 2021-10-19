@@ -1,0 +1,58 @@
+$steps-progress-bar-width-height: rem(25px) !default;
+$steps-progress-bar-border-default: 2px solid color(ui-success) !default;
+
+.#{$prefix}steps-progress-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: space(large) space(xsmall);
+  background-color: color(ui-background-primary);
+  border-bottom: $border-width-base solid color(ui-border-primary);
+
+  &__step {
+    font-size: font-size(small);
+    font-weight: font-weight(bold);
+    color: color(ui-text-primary);
+    text-transform: uppercase;
+
+    &::before {
+      content: '';
+      display: block;
+      width: $steps-progress-bar-width-height;
+      height: $steps-progress-bar-width-height;
+      margin: {
+        top: 0;
+        right: auto;
+        bottom: space(small);
+        left: auto;
+      };
+      padding-top: space(xsmall);
+      font-size: font-size(medium);
+      font-weight: font-weight(regular);
+      color: color(ui-text-light);
+      text-align: center;
+      background-color: transparent;
+      border: $steps-progress-bar-border-default;
+      border-radius: 50%;
+    }
+
+    &--checked {
+      color: color(ui-text-primary);
+
+      &::before {
+        // TODO: Assim que implementarmos os ícones, retornar nesse ponto para incorporar o ícone de Check
+        content: '✔';
+        background-color: color(ui-success);
+        border: 0;
+      }
+    }
+  }
+
+  &__line {
+    height: $steps-progress-bar-width-height;
+    min-width: 20%;
+    margin-top: space(xsmall);
+    border-top: $steps-progress-bar-border-default;
+  }
+}

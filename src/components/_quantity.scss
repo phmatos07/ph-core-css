@@ -1,0 +1,44 @@
+.#{$prefix}quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: max-content;
+  height: rem(51px);
+  padding: {
+    top: 0;
+    right: space(large);
+    bottom: rem(3px);
+    left: space(large);
+  };
+  background-color: color(ui-background-secondary);
+  border: $border-default;
+  border-radius: border-radius(small);
+
+  &__controllers {
+    @include reset-configs(true, false, true, true);
+    font-size: rem(30px);
+    font-weight: font-weight(regular);
+    color: color(ui-text-primary);
+    cursor: pointer;
+
+    &:active {
+      color: color(brand-primary);
+      background-color: transparent;
+    }
+
+    &--disabled {
+      color: color(ui-disabled);
+    }
+  }
+
+  &__counter {
+    margin: {
+      top: space(xsmall);
+      right: space(large);
+      left: space(large);
+    };
+    font-size: font-size(medium);
+    font-weight: font-weight(bold);
+    text-align: center;
+  }
+}

@@ -1,0 +1,77 @@
+$tooltip-padding: rem(7px) rem(12px) !default;
+$tooltip-background: #212121 !default;
+$tooltip-arrow-width: rem(12px) !default;
+
+%tooltip-arrow {
+  position: absolute;
+  top: -(space(small));
+  border: $tooltip-arrow-width solid transparent;
+}
+
+.#{$prefix}tooltip {
+  display: inline-block;
+  position: relative;
+  margin-top: space(small);
+  padding: $tooltip-padding;
+  font-size: font-size(small);
+  font-weight: font-weight(bold);
+  color: color(ui-text-light);
+  text-align: center;
+  background-color: $tooltip-background;
+  border-radius: border-radius(xsmall);
+
+  &::before {
+    @extend %tooltip-arrow;
+    content: '';
+    left: 0;
+    border-left: $tooltip-arrow-width solid $tooltip-background;
+  }
+
+  &--bottom {
+    &::before {
+      @extend %tooltip-arrow;
+      content: '';
+      top: space(medium);
+      left: 0;
+      border-left: $tooltip-arrow-width solid $tooltip-background;
+    }
+  }
+
+  &--right-arrow {
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      @extend %tooltip-arrow;
+      content: '';
+      right: 0;
+      border-right: $tooltip-arrow-width solid $tooltip-background;
+    }
+  }
+
+  &--info {
+    color: color(ui-text-primary);
+    background-color: color(ui-info);
+
+    &::before {
+      border-left-color: color(ui-info);
+    }
+
+    &::after {
+      border-right-color: color(ui-info);
+    }
+  }
+
+  &--success {
+    background-color: color(ui-success);
+
+    &::before {
+      border-left-color: color(ui-success);
+    }
+
+    &::after {
+      border-right-color: color(ui-success);
+    }
+  }
+}

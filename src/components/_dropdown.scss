@@ -1,0 +1,115 @@
+%dropdown-config-default {
+  font-size: font-size(small);
+  font-weight: font-weight(bold);
+  color: color(ui-text-secondary);
+  cursor: pointer;
+}
+
+.#{$prefix}dropdown {
+  &__label {
+    margin-bottom: space(small);
+    font-size: font-size(medium);
+    font-weight: font-weight(bold);
+    color: color(ui-text-primary);
+  }
+
+  &__contents {
+    display: block;
+    max-height: rem(51px);
+    overflow-y: hidden;
+    background-color: color(ui-background-secondary);
+    border: $border-default;
+    border-radius: border-radius(xsmall);
+    box-shadow: 0 0 10px color(ui-box-shadow);
+    transition: max-height .5s;
+
+    &--collapse {
+      max-height: rem(250px);
+      overflow-y: auto;
+      transition-duration: 1s;
+    }
+  }
+
+  &__current-value {
+    @extend %dropdown-config-default;
+    width: 100%;
+    padding: space(medium);
+
+    // TODO: Assim que implementarmos os ícones, retornar nesse ponto para incorporar o ícone de Seta
+    &::after {
+      content: '〉';
+      position: absolute;
+      right: rem(30px);
+      transform: rotate(90deg);
+      font-size: rem(20px);
+      color: color(ui-text-primary);
+    }
+
+    &--up-arrow {
+      &::after {
+        content: '〈';
+      }
+    }
+  }
+
+  &__list {
+    padding: space(medium) {
+      top: 0;
+    }
+
+    li {
+      @extend %dropdown-config-default;
+      padding-bottom: space(small);
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      &:active {
+        color: color(brand-primary);
+      }
+    }
+
+    &:not(li) &--selected {
+      color: color(brand-primary);
+    }
+  }
+
+  &__description-list {
+    padding: space(medium) {
+      top: 0;
+    }
+
+    dt {
+      @extend %dropdown-config-default;
+      display: block;
+      padding-bottom: space(xsmall);
+      color: color(ui-text-primary);
+    }
+
+    dd {
+      @extend %dropdown-config-default;
+      padding-bottom: space(medium);
+
+      &::after {
+        content: '';
+        display: block;
+        padding-bottom: space(medium);
+        border-bottom: 2px dashed color(ui-border-primary);
+      }
+
+      &:last-child {
+        padding: 0;
+
+        &::after {
+          padding: 0;
+          border: 0;
+        }
+      }
+    }
+
+    &:not(dt) &--selected {
+      color: color(brand-primary);
+    }
+  }
+}

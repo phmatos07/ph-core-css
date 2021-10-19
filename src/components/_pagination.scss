@@ -1,0 +1,26 @@
+$pagination-color: #707070 !default;
+
+.#{$prefix}pagination {
+  display: flex;
+  justify-content: center;
+
+  &__box {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    display: block;
+    width: space(small);
+    height: space(small);
+    margin-right: space(small);
+    background-color: color(ui-background-secondary);
+    border: $border-width-base solid $pagination-color;
+    border-radius: $border-radius-circle;
+    box-sizing: border-box;
+  }
+
+  &__item--ativo {
+    background-color: $pagination-color;
+  }
+}

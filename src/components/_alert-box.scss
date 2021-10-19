@@ -1,0 +1,39 @@
+.#{$prefix}alert-box {
+  position: relative;
+  margin: {
+    top: space(small);
+    bottom: space(small);
+  }
+  padding: space(large);
+  background-color: color(ui-info);
+  border-radius: border-radius(xsmall);
+  box-shadow: 0 0 10px color(ui-box-shadow);
+
+  header,
+  &__header {
+    margin-bottom: space(small);
+
+    h4 {
+      font-size: font-size(medium);
+      font-weight: font-weight(bold);
+      color: color(ui-text-primary);
+    }
+
+    // TODO: Assim que implementarmos os ícones, retornar nesse ponto para incorporar o ícone de fechar
+    button {
+      @include reset-configs(true, false, true, true);
+      position: absolute;
+      top: space(small);
+      right: space(small);
+      font-size: font-size(medium);
+      font-weight: font-weight(bold);
+      color: color(ui-text-primary);
+      cursor: pointer;
+    }
+  }
+
+  p,
+  &__content {
+    color: color(ui-text-primary);
+  }
+}

@@ -1,0 +1,46 @@
+$spinner-size: 64px !default;
+$internal-circle-size: calc(#{$spinner-size} * .69);
+$rounded-tip-size: calc(#{$spinner-size} * .15);
+
+.#{$prefix}spinner {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: $spinner-size;
+  height: $spinner-size;
+  background: conic-gradient(
+    color(ui-spinner) 0deg,
+    transparent 270deg
+  );
+  border-radius: 50%;
+  animation: rotate 1.4s infinite linear;
+
+  &::before {
+    content: '';
+    width: $internal-circle-size;
+    height: $internal-circle-size;
+    background: color(ui-background-primary);
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: $rounded-tip-size;
+    height: $rounded-tip-size;
+    background: color(ui-spinner);
+    border-radius: 50%;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
