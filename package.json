@@ -5,14 +5,14 @@
   "private": true,
   "description": "É uma biblioteca de CSS que foi concebida para facilitar o desenvolvimento de diversos tipos de aplicações, seja um simples site ou um sistema complexo. É totalmente compatível com todas as Frameworks (Ex.: Angular, React, Vue.js ou etc), pois foi desenvolvida 100% em SASS.",
   "homepage": "https://github.com/phmatos07/api-restful#readme",
-  "author": "Phelipe Matos - PHMATOS07",
+  "author": "Phelipe Matos (PHMATOS07)",
   "sasslintConfig": "./.sass-lint.yml",
   "files": [
     "src/*"
   ],
   "scripts": {
-    "start": "sass ./src/_import-core-main.scss:playground/assets/css/main.css",
-    "start:watch": "sass ./src/_import-core-main.scss:playground/assets/css/main.css --watch",
+    "build": "sass ./src/_import-core-main.scss:playground/assets/css/main.css",
+    "build:watch": "sass ./src/_import-core-main.scss:playground/assets/css/main.css --watch",
     "playground": "node config/create-playground && npm run dev",
     "sassdoc": "sassdoc ./src --config ./.sassdocrc.yml",
     "lint": "npx stylelint ./src/**/*.scss --config ./.stylelintrc.json",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "fs-extra": "^10.0.0",
-    "sass": "^1.42.0",
+    "sass": "^1.70.0",
     "sassdoc": "^2.7.3",
     "stylelint": "^13.13.1",
     "stylelint-config-sass-guidelines": "^8.0.0",
