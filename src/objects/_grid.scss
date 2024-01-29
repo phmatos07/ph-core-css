@@ -1,5 +1,6 @@
 @use 'sass:math';
-$bottom-spacing: 1rem !default;
+$margin-spacing: 1rem !default;
+$initial-cycle: 1 !default;
 
 .#{$prefix}grid {
   display: flex;
@@ -7,25 +8,30 @@ $bottom-spacing: 1rem !default;
   box-sizing: border-box;
 
   &--margin-top {
-    margin-top: $bottom-spacing;
+    margin-top: $margin-spacing;
   }
 
   &--margin-left {
-    margin-left: $bottom-spacing;
+    margin-left: $margin-spacing;
   }
 
   &--margin-right {
-    margin-right: $bottom-spacing;
+    margin-right: $margin-spacing;
   }
 
   &--margin-bottom {
-    margin-bottom: $bottom-spacing;
+    margin-bottom: $margin-spacing;
+  }
+
+  @media (min-width: 0) {
+    &__col {
+      flex: 0 0 100%;
+    }
   }
 
   @each $key, $value in $breakpoints {
-    @for $i from 1 through $grid-columns {
+    @for $i from $initial-cycle through $grid-columns {
       &__col--#{$key}-#{$i} {
-        flex: 0 0 100%;
 
         @include breakpoint($key) {
           flex: 0 0 #{math.div($i, $grid-columns) * 100%};

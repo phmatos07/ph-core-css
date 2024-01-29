@@ -22,7 +22,7 @@
 ///   }
 /// }
 ///
-@mixin breakpoint($key) {
+@mixin breakpoint($key, $type-width: min) {
 
   @if not variable-exists(breakpoints) {
     @warn _warning-message('map', '$breakpoints');
@@ -30,7 +30,7 @@
     @warn _warning-message('key', $key);
   } @else {
 
-    @media (min-width: map-get($breakpoints, $key)) {
+    @media (#{$type-width}-width: map-get($breakpoints, $key)) {
       @content;
     }
   }
