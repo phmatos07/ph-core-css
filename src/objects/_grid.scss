@@ -37,6 +37,18 @@ $initial-cycle: 1 !default;
           flex: 0 0 #{math.div($i, $grid-columns) * 100%};
         }
       }
+
+      &__col--#{$key}-hide-min {
+        @include breakpoint($key) {
+          display: none;
+        }
+      }
+
+      &__col--#{$key}-hide-max {
+        @include breakpoint($key, max) {
+          display: none;
+        }
+      }
     }
   }
 }
